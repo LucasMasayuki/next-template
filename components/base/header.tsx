@@ -14,6 +14,7 @@ import {
   toogleColorMode,
 } from '../../src/presentation/stores/color-mode-slice';
 import { ColorModes } from '../../src/utils/constants';
+import AccountMenu from './menu/account-menu';
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -29,13 +30,6 @@ const Header: React.FC = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box
-            component="div"
-            sx={{
-              display: 'flex',
-              width: { xs: '1vw', sm: '4vw', md: '17vw' },
-            }}
-          />
           <Typography color="primary" sx={{ fontWeight: 'bold' }} variant="h6">
             LOGO
           </Typography>{' '}
@@ -43,10 +37,11 @@ const Header: React.FC = () => {
           <IconButton
             color="primary"
             sx={{ ml: 1 }}
-            onClick={() => dispatch(toogleColorMode())}
+            onClick={() => dispatch(toogleColorMode(null))}
           >
             {colorMode === ColorModes.DARK ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
+          <AccountMenu />
         </Toolbar>
       </Container>
     </AppBar>

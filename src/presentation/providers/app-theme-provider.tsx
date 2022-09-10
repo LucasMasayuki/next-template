@@ -4,9 +4,9 @@ import appTheme from 'presentation/theme/theme';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-const AppThemeProvider: React.FC<{ children: React.ReactElement }> = ({
-  children,
-}) => {
+type Props = { children: React.ReactNode };
+
+const AppThemeProvider: React.FC<Props> = ({ children }: Props) => {
   const { colorMode } = useSelector(selectColorMode);
   const theme = useMemo(() => appTheme(colorMode), [colorMode]);
 

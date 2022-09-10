@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import colorModeReducer from '../../presentation/stores/color-mode-slice';
+import { colorModeSlice } from '../stores/color-mode-slice';
 
 export const store = configureStore({
   reducer: {
-    colorMode: colorModeReducer,
+    colorMode: colorModeSlice.reducer,
   },
 });
 

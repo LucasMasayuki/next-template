@@ -1,12 +1,10 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, Slice } from '@reduxjs/toolkit';
 import { RootState } from 'presentation/app/store';
-import { ColorModes } from 'utils/constants';
 import {
   getCurrentColorMode,
   setCurrentColorMode,
 } from '../../main/adapters/current-color-mode-adapter';
+import { ColorModes } from '../../utils/constants';
 
 export type ColorModeState = {
   colorMode: ColorModes;
@@ -16,7 +14,7 @@ const initialState: ColorModeState = {
   colorMode: getCurrentColorMode() ?? ColorModes.LIGHT,
 };
 
-export const colorModeSlice = createSlice({
+export const colorModeSlice: Slice<ColorModeState> = createSlice({
   name: 'color-mode',
   initialState,
   reducers: {
@@ -32,7 +30,4 @@ export const colorModeSlice = createSlice({
 
 export const { toogleColorMode } = colorModeSlice.actions;
 
-export const selectColorMode = (state: RootState): ColorModeState =>
-  state.colorMode;
-
-export default colorModeSlice.reducer;
+export const selectColorMode = (state: RootState) => state.colorMode;

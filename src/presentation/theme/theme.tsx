@@ -88,13 +88,6 @@ const appTheme = (mode: ColorModes): Theme =>
         },
       },
       components: {
-        MuiCssBaseline: {
-          styleOverrides: {
-            body: {
-              backgroundColor: '#F2F2F2',
-            },
-          },
-        },
         MuiButton: {
           styleOverrides: {
             root: {

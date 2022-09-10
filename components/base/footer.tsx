@@ -1,24 +1,23 @@
-import { Box, Container, Toolbar, Typography } from '@mui/material';
+import { Grid, Paper, Toolbar, Typography } from '@mui/material';
 import React from 'react';
+import styles from '../../styles/footer.module.css';
+
+import packageJSON from '../../package.json';
 
 const Footer: React.FC = () => {
   return (
-    <footer>
-      <Container maxWidth="xl">
+    <footer className={styles.footer}>
+      <Paper sx={{ padding: 1 }}>
         <Toolbar disableGutters>
-          <Box
-            component="div"
-            sx={{
-              display: 'flex',
-              width: { xs: '1vw', sm: '4vw', md: '17vw' },
-            }}
-          />
-          <Typography color="primary" sx={{ fontWeight: 'bold' }} variant="h6">
-            LOGO
-          </Typography>{' '}
-          <Box component="div" sx={{ flexGrow: 1 }} />
+          <Grid container>
+            <Grid item xs={12} textAlign="center">
+              <Typography variant="subtitle2" fontWeight="bold">
+                Version {packageJSON.version}
+              </Typography>
+            </Grid>
+          </Grid>
         </Toolbar>
-      </Container>
+      </Paper>
     </footer>
   );
 };
