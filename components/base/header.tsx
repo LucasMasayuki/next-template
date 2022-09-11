@@ -14,7 +14,7 @@ import {
   toogleColorMode,
 } from '../../src/presentation/stores/color-mode-slice';
 import { ColorModes } from '../../src/utils/constants';
-import AccountMenu from './menu/account-menu';
+import AccountMenu from './menus/account-menu';
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
